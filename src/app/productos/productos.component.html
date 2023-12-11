@@ -1,0 +1,71 @@
+<div class="form-body bod">
+  <div class="row">
+      <div class="form-holder col-md-6">
+          <div class="form-content">
+              <div class="form-items">
+                  <h3>Productos registrados</h3>
+                  <table class="table" style="cursor: pointer;">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let producto of productos" style="color: white;" (click)="click_producto(producto)">
+                        <td>{{producto.producto}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="form-holder">
+        <div class="form-content">
+            <div class="form-items">
+                <h3>Registrar nuevo producto</h3>
+                <form>
+
+                    <div class="col-md-12">
+                       <input class="form-control" type="text" name="producto" placeholder="Ingrese el producto" [(ngModel)]="producto">
+                    </div>
+
+                    <div class="col-md-12">
+                        <input class="form-control" type="text" name="precio" placeholder="Ingrese el precio" [(ngModel)]="precio" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                    </div><br>
+
+                    <div class="col-md-12">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{dropdown}}
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li *ngFor="let categoria of categorias" (click)="click_categoria(categoria)"><a class="dropdown-item">{{categoria.nombre}}</a></li>
+                        </ul>
+                      </div>
+                  </div><br>
+
+                  <div class="col-md-12">
+                    <label>Descuento: &nbsp;</label>
+                    <label>{{descuento}}</label>
+                </div><br>
+
+                <div class="col-md-12">
+                  <label>Precio al público: &nbsp;</label>
+                  <label>{{publico}}</label>
+              </div>
+
+                    <div class="form-button mt-3">
+                        <button type="button" class="btn btn-outline-primary" (click)="guardar()">Guardar</button>
+                        <button type="button" class="btn btn-outline-primary" (click)="limpiar()">Limpiar formulario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

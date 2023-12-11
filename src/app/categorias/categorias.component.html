@@ -1,0 +1,54 @@
+<div class="form-body bod">
+  <div class="row">
+      <div class="form-holder col-md-6">
+          <div class="form-content">
+              <div class="form-items">
+                  <h3>Categorias registradas</h3>
+                  <table class="table" style="cursor: pointer;">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Descuento</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let categoria of categorias" style="color: white;" (click)="click_categoria(categoria)">
+                        <td>{{categoria.nombre}}</td>
+                        <td>{{categoria.descripcion}}</td>
+                        <td>{{categoria.descuento}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="form-holder">
+        <div class="form-content">
+            <div class="form-items">
+                <h3>Registrar nueva categoría</h3>
+                <form>
+
+                    <div class="col-md-12">
+                       <input class="form-control" type="text" name="nombre" placeholder="Ingrese el nombre" [(ngModel)]="nombre">
+                    </div>
+
+                    <div class="col-md-12">
+                        <input class="form-control" type="text" name="descripcion" placeholder="Ingrese la descripción" [(ngModel)]="descripcion">
+                    </div>
+
+                    <div class="col-md-12">
+                      <input class="form-control" type="text" name="descuento" placeholder="Ingrese el descuento" [(ngModel)]="descuento">
+                  </div>
+
+                    <div class="form-button mt-3">
+                        <button type="button" class="btn btn-outline-primary" (click)="guardar()">Guardar</button>
+                        <button type="button" class="btn btn-outline-primary" (click)="limpiar()">Limpiar formulario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
